@@ -1,0 +1,1003 @@
+-- ts file was generated at discord.gg/25ms
+
+local v1 = loadstring(game:HttpGet('https://raw.githubusercontent.com/x2zu/OPEN-SOURCE-UI-ROBLOX/refs/heads/main/X2ZU%20UI%20ROBLOX%20OPEN%20SOURCE/DummyUi-leak-by-x2zu/fetching-main/Tools/Framework.luau'))()
+local _Players = game:GetService('Players')
+local _RunService = game:GetService('RunService')
+local _CurrentCamera = workspace.CurrentCamera
+local _LocalPlayer = _Players.LocalPlayer
+local _UserInputService = game:GetService('UserInputService')
+local _TextService = game:GetService('TextService')
+local _TweenService = game:GetService('TweenService')
+local u9 = false
+local u10 = nil
+local u11 = 0.125
+local u12 = 0.12
+local u13 = 300
+local u14 = true
+local u15 = true
+local u16 = false
+local u17 = 'Head'
+local u18 = false
+local u19 = nil
+local u20 = 0
+local u21 = 100
+local u22 = false
+local u23 = 0.18
+local u24 = false
+local u25 = false
+local u26 = false
+local u27 = 1000
+local u28 = 222
+local u29 = false
+local u30 = false
+local _C = Enum.KeyCode.C
+local _V = Enum.KeyCode.V
+local _B = Enum.KeyCode.B
+local _N = Enum.KeyCode.N
+local _M = Enum.KeyCode.M
+local u36 = {}
+local u37 = {}
+
+getgenv().Resolution = {
+    ['.gg/scripters'] = 0.65,
+}
+
+local u38 = false
+
+if getgenv().gg_scripters == nil then
+    _RunService.RenderStepped:Connect(function()
+        if u38 then
+            local _ggscripters = getgenv().Resolution['.gg/scripters']
+
+            _CurrentCamera.CFrame = _CurrentCamera.CFrame * CFrame.new(0, 0, 0, 1, 0, 0, 0, _ggscripters, 0, 0, 0, 1)
+        end
+    end)
+end
+
+getgenv().gg_scripters = 'Aori0001'
+
+local _ScreenGui = Instance.new('ScreenGui')
+
+_ScreenGui.Name = 'Cracked by Soul Nigga'
+_ScreenGui.ResetOnSpawn = false
+_ScreenGui.Parent = _LocalPlayer:WaitForChild('PlayerGui')
+
+local _Folder = Instance.new('Folder')
+
+_Folder.Name = 'HitNotifications'
+_Folder.Parent = _ScreenGui
+
+local u42 = UDim2.new(0, 14, 0, 50)
+local u43 = 22
+local u44 = 4
+local u45 = {}
+
+local function u69(p46)
+    local v47 = 'Target: ' .. (p46.DisplayName or p46.Name)
+    local v48 = _TextService:GetTextSize(v47, 12, Enum.Font.GothamBold, Vector2.new(1000, 1000))
+    local v49 = math.max(130, v48.X + 18)
+    local _Frame = Instance.new('Frame')
+
+    _Frame.Size = UDim2.new(0, v49, 0, u43)
+    _Frame.Position = u42 + UDim2.new(0, 0, 0, #u45 * (u43 + u44))
+    _Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+    _Frame.BackgroundTransparency = 1
+    _Frame.BorderSizePixel = 0
+    _Frame.Parent = _Folder
+    _Frame.ZIndex = 50
+    _Frame.AnchorPoint = Vector2.new(0, 0)
+
+    local _Frame2 = Instance.new('Frame')
+
+    _Frame2.Size = UDim2.new(1, 0, 0, 1)
+    _Frame2.Position = UDim2.new(0, 0, 0, 0)
+    _Frame2.BackgroundColor3 = Color3.fromRGB(255, 50, 50)
+    _Frame2.BorderSizePixel = 0
+    _Frame2.ZIndex = 51
+    _Frame2.BackgroundTransparency = 1
+    _Frame2.Parent = _Frame
+
+    local _TextLabel = Instance.new('TextLabel')
+
+    _TextLabel.Size = UDim2.new(1, -8, 1, -4)
+    _TextLabel.Position = UDim2.new(0, 4, 0, 1)
+    _TextLabel.BackgroundTransparency = 1
+    _TextLabel.Text = v47
+    _TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    _TextLabel.Font = Enum.Font.GothamBold
+    _TextLabel.TextSize = 12
+    _TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+    _TextLabel.TextYAlignment = Enum.TextYAlignment.Center
+    _TextLabel.ZIndex = 51
+    _TextLabel.TextTransparency = 1
+    _TextLabel.Parent = _Frame
+
+    table.insert(u45, _Frame)
+
+    local v53 = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local v54 = _TweenService:Create(_Frame, v53, {BackgroundTransparency = 0.3})
+    local v55 = _TweenService:Create(_Frame2, v53, {BackgroundTransparency = 0})
+    local v56 = _TweenService:Create(_TextLabel, v53, {TextTransparency = 0})
+
+    v54:Play()
+    v55:Play()
+    v56:Play()
+    task.delay(1, function()
+        local v57 = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        local v58 = _TweenService:Create(_Frame, v57, {BackgroundTransparency = 1})
+        local v59 = _TweenService:Create(_Frame2, v57, {BackgroundTransparency = 1})
+        local v60 = _TweenService:Create(_TextLabel, v57, {TextTransparency = 1})
+
+        v58:Play()
+        v59:Play()
+        v60:Play()
+        v58.Completed:Wait()
+
+        local v61, v62, v63 = ipairs(u45)
+
+        while true do
+            local v64
+
+            v63, v64 = v61(v62, v63)
+
+            if v63 == nil then
+                break
+            end
+            if v64 == _Frame then
+                table.remove(u45, v63)
+
+                break
+            end
+        end
+
+        _Frame:Destroy()
+
+        local v65, v66, v67 = ipairs(u45)
+
+        while true do
+            local v68
+
+            v67, v68 = v65(v66, v67)
+
+            if v67 == nil then
+                break
+            end
+
+            v68:TweenPosition(u42 + UDim2.new(0, 0, 0, (v67 - 1) * (u43 + u44)), 'Out', 'Quad', 0.2, true)
+        end
+    end)
+end
+
+local u70 = UDim2.new(0, 14, 0, 100)
+local u71 = 40
+local u72 = 4
+local u73 = {}
+
+local function u110(p74, p75, p76)
+    local v77 = 'Target: ' .. (p74.DisplayName or p74.Name)
+    local v78 = 'Damage: ' .. math.floor(p75)
+    local v79 = 'Health: ' .. math.floor(p76)
+    local v80 = _TextService:GetTextSize(v77, 12, Enum.Font.GothamBold, Vector2.new(1000, 1000))
+    local v81 = _TextService:GetTextSize(v78, 11, Enum.Font.Gotham, Vector2.new(1000, 1000))
+    local v82 = _TextService:GetTextSize(v79, 11, Enum.Font.Gotham, Vector2.new(1000, 1000))
+    local v83 = math.max(v80.X, v81.X, v82.X)
+    local v84 = math.max(150, v83 + 18)
+    local _Frame3 = Instance.new('Frame')
+
+    _Frame3.Size = UDim2.new(0, v84, 0, u71)
+    _Frame3.Position = u70 + UDim2.new(0, 0, 0, #u73 * (u71 + u72))
+    _Frame3.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+    _Frame3.BackgroundTransparency = 1
+    _Frame3.BorderSizePixel = 0
+    _Frame3.Parent = _Folder
+    _Frame3.ZIndex = 50
+    _Frame3.AnchorPoint = Vector2.new(0, 0)
+
+    local _Frame4 = Instance.new('Frame')
+
+    _Frame4.Size = UDim2.new(1, 0, 0, 1)
+    _Frame4.Position = UDim2.new(0, 0, 0, 0)
+    _Frame4.BackgroundColor3 = Color3.fromRGB(255, 50, 50)
+    _Frame4.BorderSizePixel = 0
+    _Frame4.ZIndex = 51
+    _Frame4.BackgroundTransparency = 1
+    _Frame4.Parent = _Frame3
+
+    local _TextLabel2 = Instance.new('TextLabel')
+
+    _TextLabel2.Size = UDim2.new(1, -8, 0, 14)
+    _TextLabel2.Position = UDim2.new(0, 4, 0, 2)
+    _TextLabel2.BackgroundTransparency = 1
+    _TextLabel2.Text = v77
+    _TextLabel2.TextColor3 = Color3.fromRGB(255, 255, 255)
+    _TextLabel2.Font = Enum.Font.GothamBold
+    _TextLabel2.TextSize = 12
+    _TextLabel2.TextXAlignment = Enum.TextXAlignment.Left
+    _TextLabel2.TextYAlignment = Enum.TextYAlignment.Center
+    _TextLabel2.ZIndex = 51
+    _TextLabel2.TextTransparency = 1
+    _TextLabel2.Parent = _Frame3
+
+    local _TextLabel3 = Instance.new('TextLabel')
+
+    _TextLabel3.Size = UDim2.new(1, -8, 0, 12)
+    _TextLabel3.Position = UDim2.new(0, 4, 0, 16)
+    _TextLabel3.BackgroundTransparency = 1
+    _TextLabel3.Text = v78
+    _TextLabel3.TextColor3 = Color3.fromRGB(255, 100, 100)
+    _TextLabel3.Font = Enum.Font.Gotham
+    _TextLabel3.TextSize = 11
+    _TextLabel3.TextXAlignment = Enum.TextXAlignment.Left
+    _TextLabel3.TextYAlignment = Enum.TextYAlignment.Center
+    _TextLabel3.ZIndex = 51
+    _TextLabel3.TextTransparency = 1
+    _TextLabel3.Parent = _Frame3
+
+    local _TextLabel4 = Instance.new('TextLabel')
+
+    _TextLabel4.Size = UDim2.new(1, -8, 0, 12)
+    _TextLabel4.Position = UDim2.new(0, 4, 0, 28)
+    _TextLabel4.BackgroundTransparency = 1
+    _TextLabel4.Text = v79
+    _TextLabel4.TextColor3 = Color3.fromRGB(100, 255, 100)
+    _TextLabel4.Font = Enum.Font.Gotham
+    _TextLabel4.TextSize = 11
+    _TextLabel4.TextXAlignment = Enum.TextXAlignment.Left
+    _TextLabel4.TextYAlignment = Enum.TextYAlignment.Center
+    _TextLabel4.ZIndex = 51
+    _TextLabel4.TextTransparency = 1
+    _TextLabel4.Parent = _Frame3
+
+    table.insert(u73, _Frame3)
+
+    local v90 = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local v91 = _TweenService:Create(_Frame3, v90, {BackgroundTransparency = 0.3})
+    local v92 = _TweenService:Create(_Frame4, v90, {BackgroundTransparency = 0})
+    local v93 = _TweenService:Create(_TextLabel2, v90, {TextTransparency = 0})
+    local v94 = _TweenService:Create(_TextLabel3, v90, {TextTransparency = 0})
+    local v95 = _TweenService:Create(_TextLabel4, v90, {TextTransparency = 0})
+
+    v91:Play()
+    v92:Play()
+    v93:Play()
+    v94:Play()
+    v95:Play()
+    task.delay(3, function()
+        local v96 = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        local v97 = _TweenService:Create(_Frame3, v96, {BackgroundTransparency = 1})
+        local v98 = _TweenService:Create(_Frame4, v96, {BackgroundTransparency = 1})
+        local v99 = _TweenService:Create(_TextLabel2, v96, {TextTransparency = 1})
+        local v100 = _TweenService:Create(_TextLabel3, v96, {TextTransparency = 1})
+        local v101 = _TweenService:Create(_TextLabel4, v96, {TextTransparency = 1})
+
+        v97:Play()
+        v98:Play()
+        v99:Play()
+        v100:Play()
+        v101:Play()
+        v97.Completed:Wait()
+
+        local v102, v103, v104 = ipairs(u73)
+
+        while true do
+            local v105
+
+            v104, v105 = v102(v103, v104)
+
+            if v104 == nil then
+                break
+            end
+            if v105 == _Frame3 then
+                table.remove(u73, v104)
+
+                break
+            end
+        end
+
+        _Frame3:Destroy()
+
+        local v106, v107, v108 = ipairs(u73)
+
+        while true do
+            local v109
+
+            v108, v109 = v106(v107, v108)
+
+            if v108 == nil then
+                break
+            end
+
+            v109:TweenPosition(u70 + UDim2.new(0, 0, 0, (v108 - 1) * (u71 + u72)), 'Out', 'Quad', 0.2, true)
+        end
+    end)
+end
+local function u115(p111)
+    if p111.Character then
+        local _Humanoid = p111.Character:FindFirstChildOfClass('Humanoid')
+
+        if _Humanoid then
+            u36[p111] = _Humanoid.Health
+
+            _Humanoid.HealthChanged:Connect(function(p113)
+                if p111 == u10 then
+                    local v114 = (u36[p111] or p113) - p113
+
+                    if 0 < v114 and 0 < p113 then
+                        u110(p111, v114, p113)
+                    end
+                end
+
+                u36[p111] = p113
+            end)
+        end
+    else
+        return
+    end
+end
+local function u120()
+    local v116, v117, v118 = pairs(u37)
+
+    while true do
+        local v119
+
+        v118, v119 = v116(v117, v118)
+
+        if v118 == nil then
+            break
+        end
+
+        u37[v118] = nil
+    end
+
+    if u10 then
+        if u10.Character then
+            u115(u10)
+        end
+
+        u37[u10] = true
+
+        u10.CharacterAdded:Connect(function(_)
+            u115(u10)
+        end)
+    end
+end
+local function v137(p121, p122, p123)
+    local _TextButton = Instance.new('TextButton')
+
+    _TextButton.Size = UDim2.new(0, 120, 0, 40)
+    _TextButton.Position = UDim2.new(0, 50, 0, 50)
+    _TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    _TextButton.BackgroundTransparency = 0.5
+    _TextButton.BorderColor3 = Color3.fromRGB(255, 255, 255)
+    _TextButton.BorderSizePixel = 2
+    _TextButton.Font = Enum.Font.SourceSansBold
+    _TextButton.TextSize = 18
+    _TextButton.TextWrapped = true
+    _TextButton.Text = p121 .. ' OFF'
+    _TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+    _TextButton.Visible = false
+    _TextButton.Parent = _ScreenGui
+    Instance.new('UICorner', _TextButton).CornerRadius = UDim.new(0, 6)
+
+    local u125 = nil
+    local u126 = nil
+    local u127 = nil
+    local u128 = nil
+
+    local function u131(p129)
+        local v130 = p129.Position - u127
+
+        _TextButton.Position = UDim2.new(u128.X.Scale, u128.X.Offset + v130.X, u128.Y.Scale, u128.Y.Offset + v130.Y)
+    end
+
+    _TextButton.InputBegan:Connect(function(p132)
+        if p132.UserInputType == Enum.UserInputType.MouseButton1 or p132.UserInputType == Enum.UserInputType.Touch then
+            u125 = true
+            u127 = p132.Position
+            u128 = _TextButton.Position
+
+            p132.Changed:Connect(function()
+                if p132.UserInputState == Enum.UserInputState.End then
+                    u125 = false
+                end
+            end)
+        end
+    end)
+    _TextButton.InputChanged:Connect(function(p133)
+        if p133.UserInputType == Enum.UserInputType.MouseMovement or p133.UserInputType == Enum.UserInputType.Touch then
+            u126 = p133
+        end
+    end)
+    _UserInputService.InputChanged:Connect(function(p134)
+        if p134 == u126 and u125 then
+            u131(p134)
+        end
+    end)
+
+    local u135 = p122
+
+    local function u136()
+        if u135 then
+            _TextButton.Text = p121 .. '\nON'
+            _TextButton.TextColor3 = Color3.fromRGB(0, 255, 0)
+        else
+            _TextButton.Text = p121 .. '\nOFF'
+            _TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+        end
+    end
+
+    _TextButton.MouseButton1Click:Connect(function()
+        u135 = not u135
+
+        p123(u135)
+        u136()
+    end)
+    u136()
+
+    return _TextButton, u136
+end
+
+local _WS, u140 = v137('WS', u24, function(p138)
+    u24 = p138
+end)
+local _JS, u143 = v137('JS', u25, function(p141)
+    u25 = p141
+end)
+local _AutoShoot, u146 = v137('Auto Shoot', u26, function(p144)
+    u26 = p144
+end)
+local u160, u161 = (function()
+    local _ImageButton = Instance.new('ImageButton')
+
+    _ImageButton.Size = UDim2.new(0, 90, 0, 90)
+    _ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    _ImageButton.BackgroundTransparency = 0.5
+    _ImageButton.ZIndex = 10
+    _ImageButton.Active = true
+    _ImageButton.AutoButtonColor = false
+    _ImageButton.Parent = _ScreenGui
+    Instance.new('UICorner', _ImageButton).CornerRadius = UDim.new(0, 16)
+
+    local _ImageLabel = Instance.new('ImageLabel')
+
+    _ImageLabel.Size = UDim2.new(0.8, 0, 0.8, 0)
+    _ImageLabel.Position = UDim2.new(0.1, 0, 0.1, 0)
+    _ImageLabel.BackgroundTransparency = 1
+    _ImageLabel.Image = 'rbxassetid://121401451003079'
+    _ImageLabel.ScaleType = Enum.ScaleType.Fit
+    _ImageLabel.ZIndex = 1
+    _ImageLabel.Parent = _ImageButton
+
+    local function u149()
+        _ImageLabel.Image = u9 and 'rbxassetid://17783082142' or 'rbxassetid://121401451003079'
+    end
+
+    _ImageButton.MouseButton1Click:Connect(function()
+        u9 = not u9
+
+        if u9 then
+            u10 = getClosestPlayer(u13)
+
+            if u10 then
+                u69(u10)
+                u120()
+            end
+        else
+            u10 = nil
+
+            u120()
+        end
+
+        u149()
+    end)
+
+    local u150 = nil
+    local u151 = nil
+    local u152 = nil
+    local u153 = nil
+
+    local function u156(p154)
+        local v155 = p154.Position - u152
+
+        _ImageButton.Position = UDim2.new(u153.X.Scale, u153.X.Offset + v155.X, u153.Y.Scale, u153.Y.Offset + v155.Y)
+    end
+
+    _ImageButton.InputBegan:Connect(function(p157)
+        if p157.UserInputType == Enum.UserInputType.MouseButton1 or p157.UserInputType == Enum.UserInputType.Touch then
+            u150 = true
+            u152 = p157.Position
+            u153 = _ImageButton.Position
+
+            p157.Changed:Connect(function()
+                if p157.UserInputState == Enum.UserInputState.End then
+                    u150 = false
+                end
+            end)
+        end
+    end)
+    _ImageButton.InputChanged:Connect(function(p158)
+        if p158.UserInputType == Enum.UserInputType.MouseMovement or p158.UserInputType == Enum.UserInputType.Touch then
+            u151 = p158
+        end
+    end)
+    _UserInputService.InputChanged:Connect(function(p159)
+        if p159 == u151 and u150 then
+            u156(p159)
+        end
+    end)
+
+    return _ImageButton, u149
+end)()
+
+u160.Position = UDim2.new(1, -120, 0.5, -50)
+u160.Visible = false
+
+local _Frame5 = Instance.new('Frame')
+
+_Frame5.Size = UDim2.new(0, 100, 0, 100)
+_Frame5.AnchorPoint = Vector2.new(0.5, 0.5)
+_Frame5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_Frame5.BorderSizePixel = 2
+_Frame5.BorderColor3 = Color3.fromRGB(255, 255, 255)
+_Frame5.Visible = false
+_Frame5.Parent = _ScreenGui
+Instance.new('UICorner', _Frame5).CornerRadius = UDim.new(1, 0)
+
+local function u163()
+    _Frame5.Size = UDim2.new(0, u21, 0, u21)
+    _Frame5.Position = UDim2.new(0.5, 0, 0.5, -u20)
+    _Frame5.BackgroundTransparency = u22 and 0.7 or 1
+end
+local function u178(p164)
+    local _ViewportSize = _CurrentCamera.ViewportSize
+    local v166 = Vector2.new(_ViewportSize.X / 2, _ViewportSize.Y / 2)
+    local v167 = _Players
+    local v168, v169, v170 = ipairs(v167:GetPlayers())
+    local v171 = nil
+
+    while true do
+        local v172
+
+        v170, v172 = v168(v169, v170)
+
+        if v170 == nil then
+            break
+        end
+        if v172 ~= _LocalPlayer and v172.Character then
+            local v173 = v172.Character:FindFirstChild(u17) or v172.Character:FindFirstChild('HumanoidRootPart')
+            local _Humanoid2 = v172.Character:FindFirstChildOfClass('Humanoid')
+
+            if v173 and (_Humanoid2 and _Humanoid2.Health > 0) then
+                local v175, v176 = _CurrentCamera:WorldToViewportPoint(v173.Position)
+
+                if v176 then
+                    local _Magnitude = (Vector2.new(v175.X, v175.Y) - v166).Magnitude
+
+                    if _Magnitude < p164 then
+                        v171 = v172
+                        p164 = _Magnitude
+                    end
+                end
+            end
+        end
+    end
+
+    return v171
+end
+
+_UserInputService.InputBegan:Connect(function(p179, p180)
+    if not p180 then
+        if p179.KeyCode == _C then
+            u9 = not u9
+
+            if u9 then
+                u10 = u178(u13)
+
+                if u10 then
+                    u69(u10)
+                    u120()
+                end
+            else
+                u10 = nil
+
+                u120()
+            end
+
+            u161()
+        end
+        if p179.KeyCode == _V then
+            u18 = not u18
+        end
+        if p179.KeyCode == _B then
+            u24 = not u24
+
+            u140()
+        end
+        if p179.KeyCode == _N then
+            u25 = not u25
+
+            u143()
+        end
+        if p179.KeyCode == _M then
+            u26 = not u26
+
+            u146()
+        end
+    end
+end)
+_RunService.RenderStepped:Connect(function()
+    if u9 and _LocalPlayer.Character then
+        if not (u10 and u10.Character) or u10.Character:FindFirstChildOfClass('Humanoid').Health <= 0 then
+            local v181 = u10
+
+            u10 = u178(u13)
+
+            if u10 ~= v181 then
+                u120()
+
+                if u10 then
+                    u69(u10)
+                end
+            end
+        end
+        if u10 and u10.Character then
+            local v182 = u10.Character:FindFirstChild(u17) or u10.Character:FindFirstChild('HumanoidRootPart')
+            local _Position = v182.Position
+
+            if u14 then
+                _Position = _Position + v182.Velocity * u11
+            end
+            if u15 then
+                _CurrentCamera.CFrame = _CurrentCamera.CFrame:Lerp(CFrame.new(_CurrentCamera.CFrame.Position, _Position), u12)
+            else
+                _CurrentCamera.CFrame = CFrame.new(_CurrentCamera.CFrame.Position, _Position)
+            end
+        end
+    end
+    if u18 then
+        u19 = u178(999)
+        _Frame5.Visible = true
+
+        u163()
+    else
+        _Frame5.Visible = false
+        u19 = nil
+    end
+    if _LocalPlayer.Character and _LocalPlayer.Character:FindFirstChildOfClass('Humanoid') then
+        local _Humanoid3 = _LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
+
+        if u24 and u29 then
+            _Humanoid3.WalkSpeed = u27
+        end
+        if u25 and u30 then
+            _Humanoid3.JumpPower = u28
+        end
+    end
+    if u26 and (_AutoShoot.Visible and (u10 and (u10.Character and _LocalPlayer.Character))) then
+        local _Tool = _LocalPlayer.Character:FindFirstChildOfClass('Tool')
+
+        if _Tool and _Tool:FindFirstChild('Remote') then
+            local _Remote = _Tool:FindFirstChild('Remote')
+            local u187 = u10.Character:FindFirstChild(u17) or u10.Character:FindFirstChild('HumanoidRootPart')
+
+            if u187 then
+                pcall(function()
+                    _Remote:FireServer({
+                        Hit = u187.Position,
+                        Pos = u187.Position,
+                        CFrame = CFrame.new(u187.Position),
+                    })
+                end)
+            end
+        elseif _Tool then
+            pcall(function()
+                _Tool:Activate()
+            end)
+        end
+    end
+end)
+
+local v188 = getrawmetatable(game)
+
+setreadonly(v188, false)
+
+local ___index = v188.__index
+
+function v188.__index(p190, p191)
+    if not u18 or (p191 ~= 'Hit' or not (u19 and u19.Character)) then
+        return ___index(p190, p191)
+    end
+
+    local v192 = u19.Character:FindFirstChild(u17) or u19.Character:FindFirstChild('HumanoidRootPart')
+
+    return v192.CFrame + v192.Velocity * u23
+end
+
+setreadonly(v188, true)
+
+local v193 = v1:Window({
+    Title = 'Cracked by Soul Nigga',
+    Desc = 'Made by Quantity v2 | Cracked by Soul Nigga',
+    Icon = 105059922903197,
+    Theme = 'Dark',
+    Config = {
+        Keybind = Enum.KeyCode.RightControl,
+        Size = UDim2.new(0, 500, 0, 400),
+    },
+    CloseUIButton = {
+        Enabled = true,
+        Text = 'tggl',
+    },
+})
+local v194 = v193:Tab({
+    Title = 'Aimlock',
+    Icon = '\u{2694}',
+})
+
+v194:Toggle({
+    Title = 'Aimlock',
+    Default = false,
+    Callback = function(p195)
+        u16 = p195
+        u160.Visible = p195
+    end,
+})
+v194:Slider({
+    Title = 'Aimlock FOV',
+    Min = 50,
+    Max = 500,
+    Value = 300,
+    Callback = function(p196)
+        u13 = p196
+    end,
+})
+v194:Toggle({
+    Title = 'Prediction',
+    Default = true,
+    Callback = function(p197)
+        u14 = p197
+    end,
+})
+v194:Textbox({
+    Title = 'Prediction',
+    Value = '0.125',
+    Callback = function(p198)
+        local v199 = tonumber(p198)
+
+        if v199 then
+            u11 = v199
+        end
+    end,
+})
+v194:Toggle({
+    Title = 'Smoothness',
+    Default = true,
+    Callback = function(p200)
+        u15 = p200
+    end,
+})
+v194:Textbox({
+    Title = 'Smoothness',
+    Value = '0.12',
+    Callback = function(p201)
+        local v202 = tonumber(p201)
+
+        if v202 then
+            u12 = v202
+        end
+    end,
+})
+v194:Button({
+    Title = 'Head',
+    Callback = function()
+        u17 = 'Head'
+    end,
+})
+v194:Button({
+    Title = 'Torso',
+    Callback = function()
+        u17 = 'Torso'
+    end,
+})
+v194:Button({
+    Title = 'LowerTorso',
+    Callback = function()
+        u17 = 'LowerTorso'
+    end,
+})
+
+local v203 = v193:Tab({
+    Title = 'Silent',
+    Icon = '\u{fffd}\u{fffd}\u{fffd}\u{fffd}\u{fffd}\u{fffd}',
+})
+
+v203:Toggle({
+    Title = 'Enable Silent Aim',
+    Default = false,
+    Callback = function(p204)
+        u18 = p204
+    end,
+})
+v203:Slider({
+    Title = 'Silent Height',
+    Min = -200,
+    Max = 200,
+    Value = 0,
+    Callback = function(p205)
+        u20 = p205
+    end,
+})
+v203:Slider({
+    Title = 'Silent Circle Size',
+    Min = 50,
+    Max = 500,
+    Value = 100,
+    Callback = function(p206)
+        u21 = p206
+    end,
+})
+v203:Toggle({
+    Title = 'FullFill',
+    Default = false,
+    Callback = function(p207)
+        u22 = p207
+    end,
+})
+v203:Textbox({
+    Title = 'Silent Prediction',
+    Value = '0.18',
+    Callback = function(p208)
+        local v209 = tonumber(p208)
+
+        if v209 then
+            u23 = v209
+        end
+    end,
+})
+
+local v210 = v193:Tab({
+    Title = 'Keybinds',
+    Icon = '\u{2328}\u{fe0f}',
+})
+
+v210:Textbox({
+    Title = 'Aimlock Keybind',
+    Value = 'C',
+    Callback = function(p211)
+        if p211 and p211 ~= '' then
+            _C = Enum.KeyCode[p211:upper()]
+        end
+    end,
+})
+v210:Textbox({
+    Title = 'Silent Aim Keybind',
+    Value = 'V',
+    Callback = function(p212)
+        if p212 and p212 ~= '' then
+            _V = Enum.KeyCode[p212:upper()]
+        end
+    end,
+})
+v210:Textbox({
+    Title = 'WalkSpeed Keybind',
+    Value = 'B',
+    Callback = function(p213)
+        if p213 and p213 ~= '' then
+            _B = Enum.KeyCode[p213:upper()]
+        end
+    end,
+})
+v210:Textbox({
+    Title = 'JumpPower Keybind',
+    Value = 'N',
+    Callback = function(p214)
+        if p214 and p214 ~= '' then
+            _N = Enum.KeyCode[p214:upper()]
+        end
+    end,
+})
+v210:Textbox({
+    Title = 'Auto Shoot Keybind',
+    Value = 'M',
+    Callback = function(p215)
+        if p215 and p215 ~= '' then
+            _M = Enum.KeyCode[p215:upper()]
+        end
+    end,
+})
+
+local v216 = v193:Tab({
+    Title = 'Resolution',
+    Icon = '\u{fffd}\u{fffd}\u{fffd}\u{fffd}\u{fffd}\u{fffd}',
+})
+
+v216:Toggle({
+    Title = 'Enable Stretch',
+    Default = false,
+    Callback = function(p217)
+        u38 = p217
+    end,
+})
+v216:Slider({
+    Title = 'Resolution Value',
+    Min = 0.1,
+    Max = 1,
+    Value = 0.65,
+    Callback = function(p218)
+        getgenv().Resolution['.gg/scripters'] = p218
+    end,
+})
+
+local v219 = v193:Tab({
+    Title = 'Script',
+    Icon = '\u{fffd}\u{fffd}\u{fffd}\u{fffd}\u{fffd}\u{fffd}',
+})
+
+v219:Button({
+    Title = 'Emote Script',
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Gazer-Ha/Free-emote/refs/heads/main/Delta%20mad%20stuffs'))()
+    end,
+})
+v219:Button({
+    Title = 'FE Animations',
+    Callback = function()
+        loadstring(game:HttpGet('https://rawscripts.net/raw/Universal-Script-Working-FE-Free-Animations-2024-21333'))()
+    end,
+})
+
+local v220 = v193:Tab({
+    Title = 'Misc',
+    Icon = '\u{26a1}',
+})
+
+v220:Toggle({
+    Title = 'Show WS Button On Screen',
+    Default = false,
+    Callback = function(p221)
+        u29 = p221
+        _WS.Visible = p221
+    end,
+})
+v220:Toggle({
+    Title = 'Show JS Button On Screen',
+    Default = false,
+    Callback = function(p222)
+        u30 = p222
+        _JS.Visible = p222
+    end,
+})
+v220:Toggle({
+    Title = 'Show Auto Shoot Button On Screen',
+    Default = false,
+    Callback = function(p223)
+        _AutoShoot.Visible = p223
+    end,
+})
+v220:Textbox({
+    Title = 'WalkSpeed Power',
+    Value = '1000',
+    Callback = function(p224)
+        local v225 = tonumber(p224)
+
+        if v225 then
+            u27 = v225
+        end
+    end,
+})
+v220:Textbox({
+    Title = 'JumpPower Power',
+    Value = '222',
+    Callback = function(p226)
+        local v227 = tonumber(p226)
+
+        if v227 then
+            u28 = v227
+        end
+    end,
+})
+v193:Notify({
+    Title = 'Cracked by Soul Nigga',
+    Desc = 'Loaded All \u{2705} - Go fuck shit up',
+    Time = 1,
+})
